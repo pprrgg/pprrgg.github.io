@@ -78,13 +78,102 @@
 
 
 
+    <script>
+        // Verifica si el usuario ya ha aceptado las cookies
+        window.onload = function () {
+            if (!localStorage.getItem('cookiesAccepted')) {
+                // Si no se ha aceptado, abre el modal de cookies
+                document.getElementById('modalCookies').style.display = 'flex';
+            } else {
+                // Si ya se ha aceptado, no se muestra el modal de cookies
+                document.getElementById('modalCookies').style.display = 'none';
+            }
+
+            // Generar favicon
+        };
+
+        // Guarda la aceptación de las cookies en localStorage
+        function acceptCookies() {
+            localStorage.setItem('cookiesAccepted', 'true');
+            closeModalCookies();
+        }
+
+        // Cierra el modal de cookies
+        function closeModalCookies() {
+            document.getElementById('modalCookies').style.display = 'none';
+        }
+
+        // Abre el modal de Política de Privacidad cuando se hace clic en el enlace
+        function openModalPolitica(event) {
+            event.preventDefault();
+            document.getElementById('modalPolitica').style.display = 'flex';
+        }
+        // Abre el modal de Política de Privacidad cuando se hace clic en el enlace
+        function openModalTerminos(event) {
+            event.preventDefault();
+            document.getElementById('modalTerminos').style.display = 'flex';
+        }
+        // Abre el modal de Política de Privacidad cuando se hace clic en el enlace
+        function openModalAcercade(event) {
+            event.preventDefault();
+            document.getElementById('modalAcercade').style.display = 'flex';
+        }
+        // Abre el modal de Política de Privacidad cuando se hace clic en el enlace
+        function openModal_(event) {
+            event.preventDefault();
+            document.getElementById('modal_').style.display = 'flex';
+        }
+
+
+        // Cierra el modal de Política de Privacidad
+        function closeModalPolitica() {
+            document.getElementById('modalPolitica').style.display = 'none';
+        }
+        // Cierra el modal de Política de Privacidad
+        function closeModalTerminos() {
+            document.getElementById('modalTerminos').style.display = 'none';
+        }
+        // Cierra el modal de Política de Privacidad
+        function closeModalAcercade() {
+            document.getElementById('modalAcercade').style.display = 'none';
+        }
+        // Cierra el modal deSEO
+        function closeModal_() {
+            document.getElementById('modal_').style.display = 'none';
+        }
+
+
+    </script>
+    <script>
+        function openFullscreenIframe(event) {
+            event.preventDefault(); // Prevenir el comportamiento predeterminado del enlace
+            const link = document.getElementById('dynamic-link').href; // Obtén el href dinámico
+            const iframeContainer = document.getElementById('fullscreen-iframe-container');
+            const iframe = document.getElementById('fullscreen-iframe');
+
+            iframe.src = link; // Establecer la URL en el iframe
+            iframeContainer.style.display = 'block'; // Mostrar el contenedor del iframe
+
+            // Fondo blanco para el contenedor del iframe
+            iframeContainer.style.backgroundColor = 'white'; // O 'transparent' si prefieres el fondo transparente
+            iframe.style.backgroundColor = 'transparent'; // Fondo transparente en el iframe
+        }
+
+        function closeFullscreenIframe() {
+            const iframeContainer = document.getElementById('fullscreen-iframe-container');
+            const iframe = document.getElementById('fullscreen-iframe');
+
+            iframe.src = ''; // Limpiar la URL del iframe
+            iframeContainer.style.display = 'none'; // Ocultar el contenedor del iframe
+        }
+    </script>
+
 
     <script>
 
-        var initials = web.match(/[A-Z]/g)?.join("").slice(0, 2) || "A";
+        var initials = "fdsaf";
         // var api = web.replace(/\s+/g, "").toLowerCase();
-        // var api = web.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/\s+/g, "").toLowerCase();
-        var api = 'doctec';
+        var api = web.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/\s+/g, "").toLowerCase();
 
 
         document.getElementById('dynamic-link').href = `https://${api}.duckdns.org/`;
@@ -127,7 +216,7 @@
             context.textAlign = "center";
             context.textBaseline = "middle";
             // context.fillStyle = "#1976D2";  // Color del texto
-            context.fillStyle = "blue";  // Color del texto
+            context.fillStyle = "yellow";  // Color del texto
             context.fillText(text, canvas.width / 2, canvas.height / 2);
 
             // Crear un enlace <link> para usarlo como favicon
@@ -137,13 +226,9 @@
             document.head.appendChild(link);
         }
 
-
-        
-
     </script>
 
-
-
-
+    </script>
 </body>
+
 </html>

@@ -167,7 +167,7 @@
     </div>
     <footer>
         <p>&copy; 2025 <span id="web1"></span></p>
-        <p>
+        <!-- <p>
             <a href="#" onclick="openModalPolitica(event)" style="color: #1976D2; text-decoration: underline;">Política
                 de privacidad</a> |
             <a href="#" onclick="openModalTerminos(event)" style="color: #1976D2; text-decoration: underline;">Términos
@@ -175,7 +175,7 @@
             <a href="#" onclick="openModalAcercade(event)"
                 style="color: #1976D2; text-decoration: underline;">Contacto</a>
             <a href="#" onclick="openModal_(event)" style="color: #1976D2; text-decoration: underline;">.</a>
-        </p>
+        </p> -->
     </footer>
 
     <!-- Modal de SEO -->
@@ -405,10 +405,11 @@
         window.web = "Tramitador Estandarizado de Certificados Industriales";
         window.subtitulo = "Crea tus certificados, estudios e informes a medida o con la validación oficial de técnicos colegiados";
 
-        window.web = "Técnicos en Certificación e Ingeniería";
-        window.subtitulo = "Documentos técnicos a tu medida";
+        window.web = "Documentos Técnicos";
+        window.subtitulo = "Bienvenido a mi rincón personal donde subo plantillas de documentos técnicos para PERSONALIZAR facilmente en linea. Si te dedicas a la energía solar, la eficiencia energética o eres instalador, puede que encuentres algo útil por aquí.";
 
 
+ 
 
         window.keywords = keywords = [
             "instalación paneles solares",
@@ -529,7 +530,7 @@
         var api = web.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/\s+/g, "").toLowerCase();
 
 
-        document.getElementById('dynamic-link').href = `https://${api}.duckdns.org/`;
+        document.getElementById('dynamic-link').href = `https://doctec.duckdns.org/`;
         document.querySelector('.container').style.background = `url('${web}.webp') no-repeat center center/cover`;
         document.getElementById("subtitulo").innerHTML = subtitulo;
         document.getElementById("web").innerHTML = web;
@@ -569,7 +570,7 @@
             context.textAlign = "center";
             context.textBaseline = "middle";
             // context.fillStyle = "#1976D2";  // Color del texto
-            context.fillStyle = "yellow";  // Color del texto
+            context.fillStyle = "blue";  // Color del texto
             context.fillText(text, canvas.width / 2, canvas.height / 2);
 
             // Crear un enlace <link> para usarlo como favicon
