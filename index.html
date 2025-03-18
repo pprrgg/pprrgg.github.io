@@ -5,230 +5,93 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Landing Page</title>
     <style>
-        body, html {
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+        }
+        body, html {
             height: 100%;
             font-family: Arial, sans-serif;
         }
-
-        .hero {
+        .container {
             position: relative;
-            height: 100%;
-            background-image: url('img1.png'); /* Reemplaza con la URL de tu imagen */
-            background-size: cover;
-            background-position: center;
+            width: 100%;
+            height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             color: white;
         }
-
-        .hero::before {
-            content: '';
+        .background {
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.998), rgba(255, 255, 255, 0.5));
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.99), rgba(255, 255, 255, 0.8)), 
+                        url('img1.png');
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+        }
+        .content {
             z-index: 1;
         }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
         }
-
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 0.5rem;
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
         }
-
-        .hero p {
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .hero .btn {
-            padding: 0.75rem 2rem;
-            font-size: 1rem;
+        button {
+            background-color: #007BFF;
             color: white;
-            background-color: #9c27b0;
             border: none;
+            padding: 12px 24px;
+            font-size: 1rem;
+            cursor: pointer;
             border-radius: 5px;
-            text-decoration: none;
-            transition: background-color 0.3s ease;
         }
-
-        .hero .btn:hover {
+        button:hover {
             background-color: #0056b3;
         }
     </style>
-</head>
-<body>
-    <div class="hero">
-        <div class="hero-content">
-            <h1>Bienvenido a DocTec.blog</h1>
-            <p>Este es mi rincón personal donde subo plantillas de documentos técnicos que he ido creando a lo largo del tiempo. Si te dedicas a la ingeniería, la energía solar o la eficiencia energética, puede que encuentres algo útil por aquí.</p>
-            <a href="https://calculadoradeahorroenergetico.duckdns.org/" class="btn">Ver más</a>
-        </div>
-    </div>
-
-
-
     <script>
-        // Verifica si el usuario ya ha aceptado las cookies
-        window.onload = function () {
-            if (!localStorage.getItem('cookiesAccepted')) {
-                // Si no se ha aceptado, abre el modal de cookies
-                document.getElementById('modalCookies').style.display = 'flex';
-            } else {
-                // Si ya se ha aceptado, no se muestra el modal de cookies
-                document.getElementById('modalCookies').style.display = 'none';
-            }
-
-            // Generar favicon
-        };
-
-        // Guarda la aceptación de las cookies en localStorage
-        function acceptCookies() {
-            localStorage.setItem('cookiesAccepted', 'true');
-            closeModalCookies();
-        }
-
-        // Cierra el modal de cookies
-        function closeModalCookies() {
-            document.getElementById('modalCookies').style.display = 'none';
-        }
-
-        // Abre el modal de Política de Privacidad cuando se hace clic en el enlace
-        function openModalPolitica(event) {
-            event.preventDefault();
-            document.getElementById('modalPolitica').style.display = 'flex';
-        }
-        // Abre el modal de Política de Privacidad cuando se hace clic en el enlace
-        function openModalTerminos(event) {
-            event.preventDefault();
-            document.getElementById('modalTerminos').style.display = 'flex';
-        }
-        // Abre el modal de Política de Privacidad cuando se hace clic en el enlace
-        function openModalAcercade(event) {
-            event.preventDefault();
-            document.getElementById('modalAcercade').style.display = 'flex';
-        }
-        // Abre el modal de Política de Privacidad cuando se hace clic en el enlace
-        function openModal_(event) {
-            event.preventDefault();
-            document.getElementById('modal_').style.display = 'flex';
-        }
-
-
-        // Cierra el modal de Política de Privacidad
-        function closeModalPolitica() {
-            document.getElementById('modalPolitica').style.display = 'none';
-        }
-        // Cierra el modal de Política de Privacidad
-        function closeModalTerminos() {
-            document.getElementById('modalTerminos').style.display = 'none';
-        }
-        // Cierra el modal de Política de Privacidad
-        function closeModalAcercade() {
-            document.getElementById('modalAcercade').style.display = 'none';
-        }
-        // Cierra el modal deSEO
-        function closeModal_() {
-            document.getElementById('modal_').style.display = 'none';
-        }
-
-
-    </script>
-    <script>
-        function openFullscreenIframe(event) {
-            event.preventDefault(); // Prevenir el comportamiento predeterminado del enlace
-            const link = document.getElementById('dynamic-link').href; // Obtén el href dinámico
-            const iframeContainer = document.getElementById('fullscreen-iframe-container');
-            const iframe = document.getElementById('fullscreen-iframe');
-
-            iframe.src = link; // Establecer la URL en el iframe
-            iframeContainer.style.display = 'block'; // Mostrar el contenedor del iframe
-
-            // Fondo blanco para el contenedor del iframe
-            iframeContainer.style.backgroundColor = 'white'; // O 'transparent' si prefieres el fondo transparente
-            iframe.style.backgroundColor = 'transparent'; // Fondo transparente en el iframe
-        }
-
-        function closeFullscreenIframe() {
-            const iframeContainer = document.getElementById('fullscreen-iframe-container');
-            const iframe = document.getElementById('fullscreen-iframe');
-
-            iframe.src = ''; // Limpiar la URL del iframe
-            iframeContainer.style.display = 'none'; // Ocultar el contenedor del iframe
-        }
-    </script>
-
-
-    <script>
-
-        var initials = "fdsaf";
-        // var api = web.replace(/\s+/g, "").toLowerCase();
-        var api = web.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/\s+/g, "").toLowerCase();
-
-
-        document.getElementById('dynamic-link').href = `https://${api}.duckdns.org/`;
-        document.querySelector('.container').style.background = `url('${web}.webp') no-repeat center center/cover`;
-        document.getElementById("subtitulo").innerHTML = subtitulo;
-        document.getElementById("web").innerHTML = web;
-        document.getElementById("web1").innerHTML = web;
-        document.getElementById("web2").innerHTML = web;
-        // document.getElementById("web3").innerHTML = web;
-        const metaKeywords = document.querySelector('meta[name="keywords"]');
-        metaKeywords.setAttribute('content', keywords.join(', '));
-        // 
-        const metaDescription = document.querySelector('meta[name="description"]');
-        metaDescription.setAttribute('content', subtitulo);
-        // 
-        const metaauthor = document.querySelector('meta[name="author"]');
-        metaauthor.setAttribute('content', web);
-
-        const metaOgTitle = document.querySelector('meta[property="og:title"]');
-        metaOgTitle.setAttribute('content', web);
-
-        const metaOgdescription = document.querySelector('meta[property="og:description"]');
-        metaOgdescription.setAttribute('content', subtitulo);
-
-
-        generateFavicon(initials);
-
-        // Función para generar el favicon
         function generateFavicon(initials) {
             var canvas = document.createElement('canvas');
             var context = canvas.getContext('2d');
 
-            // Usar las iniciales de la variable 'web'
-            var text = initials;  // "EC"
-
-            // Configuración del tamaño del canvas y del texto
             canvas.width = 64;
             canvas.height = 64;
-            context.font = "55px sans-serif";  // Tamaño del texto
+            context.font = "55px sans-serif";
             context.textAlign = "center";
             context.textBaseline = "middle";
-            // context.fillStyle = "#1976D2";  // Color del texto
-            context.fillStyle = "yellow";  // Color del texto
-            context.fillText(text, canvas.width / 2, canvas.height / 2);
+            context.fillStyle = "blue";
+            context.fillText(initials, canvas.width / 2, canvas.height / 2);
 
-            // Crear un enlace <link> para usarlo como favicon
             var link = document.createElement('link');
             link.rel = 'icon';
-            link.href = canvas.toDataURL('image/png'); // Convertir el canvas a una imagen PNG
+            link.href = canvas.toDataURL('image/png');
             document.head.appendChild(link);
         }
-
+        
+        window.onload = function() {
+            generateFavicon('DT');
+        };
     </script>
-
-    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="background"></div>
+        <div class="content">
+            <h1>Bienvenido a DocTec.blog</h1>
+            <p>Este es mi rincón personal donde subo plantillas de documentos técnicos que he ido creando a lo largo del tiempo. Si te dedicas a la ingeniería, la energía solar o la eficiencia energética, puede que encuentres algo útil por aquí.</p>
+            <a href="https://doctec.duckdns.org/" target="_blank">
+                <button>Explorar</button>
+            </a>
+        </div>
+    </div>
 </body>
-
 </html>
