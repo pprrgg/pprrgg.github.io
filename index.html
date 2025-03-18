@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
+        }
+
+        .hero {
+            position: relative;
+            height: 100%;
+            background-image: url('img1.png'); /* Reemplaza con la URL de tu imagen */
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.998), rgba(255, 255, 255, 0.5));
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .hero .btn {
+            padding: 0.75rem 2rem;
+            font-size: 1rem;
+            color: white;
+            background-color: #9c27b0;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .hero .btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <div class="hero-content">
+            <h1>Bienvenido a DocTec.blog</h1>
+            <p>Este es mi rincón personal donde subo plantillas de documentos técnicos que he ido creando a lo largo del tiempo. Si te dedicas a la ingeniería, la energía solar o la eficiencia energética, puede que encuentres algo útil por aquí.</p>
+            <a href="https://calculadoradeahorroenergetico.duckdns.org/" class="btn">Ver más</a>
+        </div>
+    </div>
+
+
+
+
+    <script>
+
+        var initials = web.match(/[A-Z]/g)?.join("").slice(0, 2) || "A";
+        // var api = web.replace(/\s+/g, "").toLowerCase();
+        // var api = web.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/\s+/g, "").toLowerCase();
+        var api = 'doctec';
+
+
+        document.getElementById('dynamic-link').href = `https://${api}.duckdns.org/`;
+        document.querySelector('.container').style.background = `url('${web}.webp') no-repeat center center/cover`;
+        document.getElementById("subtitulo").innerHTML = subtitulo;
+        document.getElementById("web").innerHTML = web;
+        document.getElementById("web1").innerHTML = web;
+        document.getElementById("web2").innerHTML = web;
+        // document.getElementById("web3").innerHTML = web;
+        const metaKeywords = document.querySelector('meta[name="keywords"]');
+        metaKeywords.setAttribute('content', keywords.join(', '));
+        // 
+        const metaDescription = document.querySelector('meta[name="description"]');
+        metaDescription.setAttribute('content', subtitulo);
+        // 
+        const metaauthor = document.querySelector('meta[name="author"]');
+        metaauthor.setAttribute('content', web);
+
+        const metaOgTitle = document.querySelector('meta[property="og:title"]');
+        metaOgTitle.setAttribute('content', web);
+
+        const metaOgdescription = document.querySelector('meta[property="og:description"]');
+        metaOgdescription.setAttribute('content', subtitulo);
+
+
+        generateFavicon(initials);
+
+        // Función para generar el favicon
+        function generateFavicon(initials) {
+            var canvas = document.createElement('canvas');
+            var context = canvas.getContext('2d');
+
+            // Usar las iniciales de la variable 'web'
+            var text = initials;  // "EC"
+
+            // Configuración del tamaño del canvas y del texto
+            canvas.width = 64;
+            canvas.height = 64;
+            context.font = "55px sans-serif";  // Tamaño del texto
+            context.textAlign = "center";
+            context.textBaseline = "middle";
+            // context.fillStyle = "#1976D2";  // Color del texto
+            context.fillStyle = "blue";  // Color del texto
+            context.fillText(text, canvas.width / 2, canvas.height / 2);
+
+            // Crear un enlace <link> para usarlo como favicon
+            var link = document.createElement('link');
+            link.rel = 'icon';
+            link.href = canvas.toDataURL('image/png'); // Convertir el canvas a una imagen PNG
+            document.head.appendChild(link);
+        }
+
+        
+    </script>
+
+
+
+
+</body>
+</html>
